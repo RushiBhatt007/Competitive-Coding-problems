@@ -1,0 +1,38 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class GFG
+ {
+	public static void main (String[] args)
+	 {
+	    Scanner sc=new Scanner(System.in);
+	    int t=sc.nextInt();
+	    while(t>0)
+	    {
+	        t--;
+	        String s=sc.next();
+	        char ch[]=new char[s.length()];
+	        for(int i=0;i<ch.length;i++)
+	            ch[i]=s.charAt(i);
+	        Arrays.sort(ch);
+	        s="";
+	        for(int i=0;i<ch.length;i++)
+	            s+=ch[i];
+	        permutation("",s);
+	        System.out.println();
+	    }
+	 }
+	 
+	 public static void permutation(String prev,String s)
+	 {
+	   int n=s.length();
+	   if(n==0)
+	        System.out.print(prev+" ");
+	   else
+	   {
+	       for(int i=0;i<n;i++)
+	            permutation(prev+s.charAt(i),s.substring(0,i)+s.substring(i+1));
+	   }
+	   
+	 }
+}
