@@ -1,0 +1,39 @@
+/*	https://www.hackerrank.com/challenges/angry-children/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=greedy-algorithms
+
+*/
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution 
+{
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        int unf;
+        int[] arr = new int[n];
+
+        for (int i = 0; i < n; i++) 
+        {
+            int arrItem = sc.nextInt();
+            arr[i] = arrItem;
+        }
+        Arrays.sort(arr);
+        unf = arr[k-1]-arr[0];
+        for(int i=0;i<=n-k;i++)
+        {
+            if(unf >= arr[i+k-1]-arr[i])
+                unf = arr[i+k-1]-arr[i];
+        }
+        System.out.println(unf);    
+    }
+}

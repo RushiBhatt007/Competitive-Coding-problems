@@ -1,0 +1,80 @@
+/*
+Given two strings, determine if they share a common substring. A substring may be as small as one character.
+
+For example, the words "a", "and", "art" share the common substring . The words "be" and "cat" do not share a substring.
+
+Function Description
+
+Complete the function twoStrings in the editor below. It should return a string, either YES or NO based on whether the strings share a common substring.
+
+twoStrings has the following parameter(s):
+
+s1, s2: two strings to analyze .
+Input Format
+
+The first line contains a single integer , the number of test cases.
+
+The following  pairs of lines are as follows:
+
+The first line contains string s1.
+The second line contains string s2.
+
+Output Format
+
+For each pair of strings, return YES or NO.
+
+Sample Input
+
+2
+hello
+world
+hi
+world
+Sample Output
+
+YES
+NO
+*/
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution 
+{
+        public static Set<Character> toCharSet(String word) 
+        {
+            Set<Character> charSet = new HashSet<Character>();
+
+            for (int i = 0; i < word.length(); i++) 
+            {
+                charSet.add(word.charAt(i));
+            }
+
+            return charSet;
+        }
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        int q = sc.nextInt();
+
+        for (int qItr = 0; qItr < q; qItr++) 
+        {
+            Set<Character> s1 = toCharSet(sc.next());
+            Set<Character> s2 = toCharSet(sc.next());
+            s1.retainAll(s2);
+            if (s1.size() > 0) 
+            {
+                System.out.println("YES");
+            } 
+            else 
+            {
+                System.out.println("NO");
+            }
+        }
+    }
+}
